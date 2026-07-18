@@ -4,48 +4,265 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ms. Nijani Niroshan - CV</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #2c3e50;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      overflow: hidden; /* stops the whole page from scrolling */
+    }
+
+    /* ---------- LEFT SIDEBAR (fixed) ---------- */
+    .left-section {
+      width: 300px;
+      flex-shrink: 0;
+      height: 100vh;
+      overflow-y: auto;      /* scrolls only if sidebar content is too tall */
+      background: #1f2d3d;
+      color: #ecf0f1;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ecf0f1;
+      margin-bottom: 20px;
+    }
+
+    .left-section h1 {
+      font-size: 1.3rem;
+      margin: 10px 0 4px;
+    }
+
+    .left-section .title {
+      font-size: 0.95rem;
+      color: #bdc3c7;
+      margin: 4px 0;
+    }
+
+    .left-section .subtitle {
+      font-size: 0.85rem;
+      color: #95a5a6;
+      margin: 4px 0 20px;
+    }
+
+    .contact-info p {
+      font-size: 0.85rem;
+      margin: 8px 0;
+      word-break: break-word;
+    }
+
+    .contact-info a {
+      color: #ecf0f1;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Sidebar extra sections ---------- */
+    .sidebar-section {
+      margin-top: 24px;
+      text-align: left;
+    }
+
+    .sidebar-section h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #95a5a6;
+      border-bottom: 1px solid #3a4a5c;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-section p {
+      font-size: 0.85rem;
+      margin: 4px 0;
+      color: #ecf0f1;
+    }
+
+    .location {
+      font-size: 0.85rem;
+      color: #ecf0f1;
+    }
+
+    .pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill {
+      background: #2c3e50;
+      border: 1px solid #3a4a5c;
+      color: #ecf0f1;
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .buttons {
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #2980b9;
+    }
+
+    /* ---------- RIGHT SECTION (scrollable) ---------- */
+    .right-section {
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;      /* this makes it scroll independently */
+      padding: 40px 50px;
+    }
+
+    .right-section h2 {
+      color: #1f2d3d;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 6px;
+      margin-top: 32px;
+      font-size: 1.15rem;
+    }
+
+    .right-section h2:first-child {
+      margin-top: 0;
+    }
+
+    .right-section p {
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin: 8px 0;
+    }
+
+    .right-section ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    .right-section li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+      font-size: 0.92rem;
+    }
+
+    .right-section a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .right-section a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Scrollbar styling (optional, cosmetic) ---------- */
+    .right-section::-webkit-scrollbar,
+    .left-section::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .right-section::-webkit-scrollbar-thumb {
+      background: #bbb;
+      border-radius: 4px;
+    }
+
+    .left-section::-webkit-scrollbar-thumb {
+      background: #4a5c70;
+      border-radius: 4px;
+    }
+
+    /* ---------- Responsive: stack on small screens ---------- */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+        overflow: auto;
+      }
+
+      .left-section,
+      .right-section {
+        height: auto;
+        width: 100%;
+        overflow-y: visible;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <!-- Left Section -->
+    <!-- Left Section (fixed sidebar) -->
     <div class="left-section">
       <img src="profile.jpg" alt="Ms. Nijani Niroshan" class="profile-img" />
       <h1>Ms. Nijani Niroshan</h1>
-      <p class="title">Programmer cum System Analyst (Grade II)</p>
-      <p class="subtitle">7+ Years Experience in Software Development</p>
+      <p class="title">Programmer cum Systems Analyst (Grade II)</p>
+      <p class="subtitle">8+ Years Experience in Software Development</p>
 
       <div class="contact-info">
-        <p>📍 Navaly Road, Anaicoddai</p>
-        <p>📞 +94 77 425 6828</p>
         <p>📧 <a href="mailto:nijani05@gmail.com">nijani05@gmail.com</a></p>
         <p>🔗 <a href="https://www.linkedin.com/in/nijani" target="_blank">linkedin.com/in/nijani</a></p>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Location</h3>
+        <p class="location">📍 Jaffna, Sri Lanka</p>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Languages</h3>
+        <p>Tamil — Native</p>
+        <p>English — Fluent</p>
+        <p>Sinhala — Conversational</p>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Soft Skills</h3>
+        <div class="pill-container">
+          <span class="pill">Problem Solving</span>
+          <span class="pill">Team Leadership</span>
+          <span class="pill">Agile Delivery</span>
+          <span class="pill">Communication</span>
+        </div>
       </div>
 
       <div class="buttons">
         <a href="mailto:nijani05@gmail.com" class="btn">Email Me</a>
       </div>
-
-      <div class="social-icons">
-        <a href="https://linkedin.com/in/nijani" target="_blank"><img src="linkedin.svg" alt="LinkedIn" /></a>
-        <a href="https://github.com/nijani" target="_blank"><img src="github.svg" alt="GitHub" /></a>
-      </div>
     </div>
 
-    <!-- Right Section -->
+    <!-- Right Section (scrollable content) -->
     <div class="right-section">
       <h2>Objective</h2>
       <p>
-        A professional software engineer willing to be more productive, seeking a position in development to apply my knowledge to meet client needs and exceed their expectations.
+        Engineer and perpetual scholar, bridging the gap between theoretical computer science and pragmatic delivery. Driven by a passion for research and deep learning, I strive to cultivate technical mastery and channel it into resilient, forward-compatible systems that turn client challenges into strategic advantages.
       </p>
-
-      <h2>Technical Skills</h2>
-      <ul>
-        <li><b>Languages:</b> C, Java, Python</li>
-        <li><b>Web Development:</b> HTML, CSS, JavaScript, JQuery, PHP, Laravel, AJAX, Bootstrap, Angular</li>
-        <li><b>IDEs:</b> Eclipse, NetBeans, IntelliJ, PyCharm, Protégé, STS, VSCode</li>
-        <li><b>Other:</b> MySQL, Git, Maven, Agile, Azure, SharePoint, RESTful APIs, Flask, BigCommerce, Prolog, Blender, Machine Learning, NLP</li>
-      </ul>
 
       <h2>Experience</h2>
       <p><b>University of Jaffna</b> (Dec 2021 - Present) – Programmer cum System Analyst Gr.II</p>
@@ -54,29 +271,48 @@
       <p><b>Virtusa Pvt Ltd</b> (Jul 2018 - Sep 2020) – Software Engineer</p>
       <p><b>Virtusa Pvt Ltd</b> (Feb 2017 - Aug 2017) – Junior Software Engineer</p>
 
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><b>Programming Languages:</b> C, Java, Python, PHP, JavaScript, SQL</li>
+        <li><b>Web & Frontend:</b> HTML, CSS, JavaScript, jQuery, AJAX, Bootstrap, Angular</li>
+        <li><b>Backend & Frameworks:</b> Laravel, Flask, RESTful APIs</li>
+        <li><b>Databases:</b> MySQL, PostgreSQL, MongoDB</li>
+        <li><b>DevOps & Tools:</b> Git, Maven, Azure, SharePoint, Agile (Methodology)</li>
+        <li><b>IDEs & Editors:</b> Eclipse, NetBeans, IntelliJ, PyCharm, VSCode, STS</li>
+        <li><b>AI & Data Science:</b> Machine Learning, NLP, Prolog (if logic programming), Protégé (if ontology)</li>
+        <li><b>Other:</b> BigCommerce, Blender</li>
+      </ul>
+
       <h2>Education</h2>
-      <p>PgDip in Computer Science – University of Moratuwa</p>
-      <p>B.Sc. (Hons.) in Information Technology – University of Moratuwa (Second Class Upper Division)</p>
+      <p>Postgraduate Diploma in Computer Science (PgDip) – University of Moratuwa | 2020</p>
+      <p>B.Sc. (Hons.) in Information Technology – University of Moratuwa (Second Class Upper Division) | 2018</p>
+      <p>Successfully Completed Java and PHP at Nottingham College | 2016</p>
 
       <h2>Projects</h2>
       <ul>
-        <li>Student Information System (Laravel, MariaDB)</li>
-        <li>Vodafone UK – WSO2 IDAM</li>
-        <li>GoWireless eCommerce (Java, Angular, Stencil)</li>
-        <li>Facebook Companion (Python, ML, NLTK)</li>
+        <li>Student Information System (on going with role of FullStack Engineer) - Enhancement on Student Management System for external branch of University of Jaffna, is a PHP based project using Laravel framework, MariaDB and VSCode. Redis, API management, Queue, job management are involved. <a href="https://www.odsis.jfn.ac.lk/" target="_blank">odsis.jfn.ac.lk</a></li>
+        <li>Vodafone UK – WSO2 IDAM - Migrating Identity Server for an existing project which is a Java based project. It has WSO2 identity server configurations and middleware changes.</li>
+        <li>GoWireless eCommerce - eCommerce system platform modification and integration with existing project. Java, Angular and a JavaScript framework called Stencil based project.</li>
+        <li>Facebook Companion - Secure Facebook experience for children by filtering out improper content in Facebook newsfeed. Filtering on text appropriateness and relevance (using Python, PyCharm, NLTK, Scikit Learn, and Semi-Supervised Learning).</li>
+        <li>Independent research on Software Design Patterns (Research) - Analysis of applying appropriate security design patterns based on requirements to mitigate associated vulnerabilities.</li>
       </ul>
 
       <h2>Achievements</h2>
       <ul>
-        <li>IEEE Paper Publication – International Conference on Information Technology Research 2018</li>
+        <li><a href="https://ieeexplore.ieee.org/document/8736152" target="_blank">"An Approach of Filtering the Content of Posts in Social Media"</a> – IEEE Paper Publication – International Conference on Information Technology Research 2018</li>
         <li>Virtusa Hackathon Participant</li>
         <li>FIT CODERUSH 2016</li>
-        <li>Dean’s List Student</li>
+        <li>Dean's List Student in L1S2 and L4S2</li>
       </ul>
 
-      <h2>Referees</h2>
-      <p><b>Dr. Mohamed Firdhous</b><br>Senior Lecturer, University of Moratuwa<br>📧 firdhous@uom.lk | ☎️ 0112650301</p>
-      <p><b>Dr. E.Y.A. Charles</b><br>Senior Lecturer, University of Jaffna<br>📧 charles.ey@univ.jfn.ac.lk | ☎️ 0212218194</p>
+      <h2>Extra Curricular Activities</h2>
+      <ul>
+        <li>Toastmaster of Virtusa CMB corporate club</li>
+        <li>Tamil Literary Association - Drama & announcing</li>
+        <li>WindowsGeek website - Technical Writer (Tamil)</li>
+        <li>UOM Leos Movement (306A2) - Editorial panel (2016)</li>
+        <li>Fit2School - Member</li>
+      </ul>
     </div>
   </div>
 </body>
